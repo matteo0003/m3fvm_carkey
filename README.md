@@ -17,7 +17,7 @@
 2. Adapt other scripts to give keys on purchase or other:
 
    	```lua
-	TriggerServerEvent("m3fvm_carkey:give", source, plate)
+	TriggerServerEvent("m3fvm_carkey:give", <source>, <plate>)
 	```
 
 
