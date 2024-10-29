@@ -45,7 +45,7 @@ local play_animations = function()
 
 	local coords <const> = GetEntityCoords(ped)
 	local prop <const> = CreateObject(model_hash, coords.x, coords.y, coords.z, true, true, true)
-	AttachEntityToEntity(prop, ped, GetPedBoneIndex(ped, 57005, 0.14, 0.03, -0.01, 24.0, -152.0, 164.0, true, true, false, false, 1, true)
+	AttachEntityToEntity(prop, ped, GetPedBoneIndex(ped, 57005, 0.14, 0.03, -0.01, 24.0, -152.0, 164.0, true, true, false, false, 1, true))
 
 	Citizen.Wait(1000)
 	DeleteObject(prop)
