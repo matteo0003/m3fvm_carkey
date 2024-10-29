@@ -40,16 +40,16 @@
 
    	```lua
 	["m3fvm_carkey"] = {
-    		label = "m3fvm_carkey",
-    		stack = false,
-        	weight = 30,
-        	client = {
+	        label = "m3fvm_carkey",
+	        stack = false,
+	        weight = 30,
+	        client = {
 	            image = "matteo0003_carkey.png",
-        	},
-        	metadata = {
-            		plate = "",
-    		},
-    	},
+	        },
+	        metadata = {
+	                plate = "",
+	        },
+	},
     	```
 
 
