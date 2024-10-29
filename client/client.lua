@@ -57,9 +57,9 @@ end
 local turn_headlights = function(vehicle)
     for _ = 1, 2 do
         SetVehicleLights(vehicle, 2)
-        Wait(100)
+        Wait(150)
         SetVehicleLights(vehicle, 0)
-        Wait(100)
+        Wait(150)
     end
 end
 
