@@ -43,13 +43,14 @@
 	        stack = false,
 	        weight = 30,
 	        client = {
-	            image = "matteo0003_carkey.png",
+	            image = "m3fvm_carkey.png",
 	        },
 	        metadata = {
 	                plate = "",
 	        },
 	},
 	```
+5. Place `assets/m3fvm_carkey.png` in your `ox_inventory/web/images` folder.
 
 ### License:
 
