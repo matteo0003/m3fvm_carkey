@@ -12,11 +12,11 @@ local get_item_count = function(item_name, metadata)
     local inventory <const> = exports.ox_inventory:Search("slots", item_name)
 
     for _, item in pairs(inventory) do
-        local match = true
+        local match = false
         
         for key, value in pairs(metadata) do
-            if item.metadata[key] ~= value then
-                match = false
+            if item.metadata[key] == value then
+                match = true
                 break
             end
         end
@@ -37,7 +37,7 @@ local play_animations = function()
     
     TaskPlayAnim(ped, anim_dict, "fob_click", 3.0, 3.0, -1, 48, 0.0, false, false, false)
     
-    local model_hash <const> = GetHashKey("lr_pop_carkey_fob")
+    local model_hash <const> = GetHashKey("lr_prop_carkey_fob")
     RequestModel(model_hash)
 
     while not HasModelLoaded(model_hash) do
@@ -47,7 +47,7 @@ local play_animations = function()
 
     local coords <const> = GetEntityCoords(ped)
     local prop <const> = CreateObject(model_hash, coords.x, coords.y, coords.z, true, true, true)
-    AttachEntityToEntity(prop, ped, GetPedBoneIndex(ped, 57005, 0.14, 0.03, -0.01, 24.0, -152.0, 164.0, true, true, false, false, 1, true))
+    AttachEntityToEntity(prop, ped, GetPedBoneIndex(ped, 57005), 0.14, 0.03, -0.01, 24.0, -152.0, 164.0, true, true, false, false, 1, true)
 
     Citizen.Wait(1000)
     DeleteObject(prop)
@@ -69,7 +69,12 @@ Citizen.CreateThread(function()
 
         if IsControlJustPressed(0, Config.Control) then
             local coords <const> = GetEntityCoords(PlayerPedId())
-            local vehicle <const> = GetClosestVehicle(coords.x, coords.y, coords.z, 5.000, 0, 70)
+            local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
+            
+            if vehicle == 0 then
+                vehicle = GetClosestVehicle(coords.x, coords.y, coords.z, 5.000, 0, 70)
+            end
+            
             local plate <const> = GetVehicleNumberPlateText(vehicle)
 
             local count <const> = get_item_count("m3fvm_carkey", {
@@ -77,18 +82,20 @@ Citizen.CreateThread(function()
                 plate = plate,
             })
 
-            if count >= 0 then
+            if count > 0 then
                 local status <const> = GetVehicleDoorLockStatus(vehicle)
     
                 if status == 1 then
-                    SetVehicleDoorsLocked(vehicle, 2)
+                    SetVehicleDoorsLocked(vehicle, 10)
                 else
                     SetVehicleDoorsLocked(vehicle, 1)
                 end
     
-                turn_headlights(vehicle)
                 PlayVehicleDoorOpenSound(vehicle, 0)
-		Citizen.CreateThread(play_animations)
+                Citizen.CreateThread(play_animations)
+                Citizen.CreateThread(function()
+                    turn_headlights(vehicle)
+                end)
             end
         end
     end
