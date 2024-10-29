@@ -14,7 +14,12 @@
 ### How to use:
 
 1. Use `/carkey` to give you the keys to the vehicle you are sitting in.
-2. Adapt other scripts to give keys on purchase etc.
+2. Adapt other scripts to give keys on purchase or other:
+
+   	```lua
+	TriggerServerEvent("m3fvm_carkey:give", source, plate)
+	```
+
 
 
 ### Requirements:
