@@ -36,6 +36,22 @@
 	```
 	ensure m3fvm_carkey
 	```
+4. Add in your `ox_inventory/data/items.lua`:
+
+   	```lua
+	["m3fvm_carkey"] = {
+    		label = "m3fvm_carkey",
+    		stack = false,
+        	weight = 30,
+        	client = {
+	            image = "matteo0003_carkey.png",
+        	},
+        	metadata = {
+            		plate = "",
+    		},
+    	},
+    	```
+
 
 ### License:
 
