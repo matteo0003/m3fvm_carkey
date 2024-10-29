@@ -17,3 +17,7 @@ shared_scripts {
 	"@ox_lib/init.lua",
 	"shared/shared.lua",
 }
+
+files {
+	"assets/m3fvm_carkey.png",
+}
