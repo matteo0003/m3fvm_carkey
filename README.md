@@ -11,6 +11,12 @@
 	<p></p>
 </div>
 
+### How to use:
+
+1. Use `/carkey` to give you the keys to the vehicle you are sitting in.
+2. Adapt other scripts to give keys on purchase etc.
+
+
 ### Requirements:
 
 - [ox_lib](https://github.com/overextended/ox_lib/releases)
