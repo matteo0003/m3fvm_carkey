@@ -1,0 +1,3 @@
+Config = {
+	Control = 73,
+}
