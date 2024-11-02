@@ -50,6 +50,7 @@
 	        },
 	},
 	```
+
 5. Place `assets/m3fvm_carkey.png` in your `ox_inventory/web/images` folder.
 
 ### License:
