@@ -9,9 +9,9 @@ end)
 
 local get_item_count = function(item_name, metadata)
 	local count = 0
-	local inventory <const> = exports.ox_inventory:Search("slots", item_name)
+	local items <const> = exports.ox_inventory:Search("slots", item_name)
 
-	for _, item in pairs(inventory) do
+	for _, item in pairs(items) do
 		local match = false
         
 		for key, value in pairs(metadata) do
