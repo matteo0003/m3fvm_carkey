@@ -18,6 +18,11 @@ shared_scripts {
 	"shared/shared.lua",
 }
 
+dependencies {
+	"ox_lib",
+	"ox_inventory",
+}
+
 files {
 	"assets/m3fvm_carkey.png",
 }
